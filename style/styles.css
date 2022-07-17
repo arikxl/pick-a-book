@@ -1,0 +1,41 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color:brown;
+    font-family: monospace;
+}
+
+
+h1, h2{
+    text-align: center;
+}
+
+header {
+    margin: 50px auto 30px;
+}
+
+form {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    margin-top: 50px;
+    visibility: hidden;
+}
+footer {
+    background-color:orangered;
+    height: 50px;
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
