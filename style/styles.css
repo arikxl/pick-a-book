@@ -26,13 +26,35 @@ form {
 
 main {
     margin-top: 50px;
-    visibility: hidden;
+    /* visibility: hidden; */
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap ;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+card {
+    width: 170px;
+    border:  1px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;    
+}
+
+card img {
+    width: 100px;
 }
 footer {
     background-color:orangered;
     height: 50px;
-    position: absolute;
-    bottom:0;
+    /* position: absolute;
+    bottom:0; */
     width: 100%;
     text-align: center;
     display: flex;
