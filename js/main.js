@@ -1,7 +1,8 @@
+const searchBar = document.querySelector('input');
+const bookListHeadline = document.querySelector('h2');
 const bookListContainer = document.querySelector('section');
 const BOOKS_API = "https://www.googleapis.com/books/v1/volumes?q=";
-const defaultImg = "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGljfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
-const searchBar = document.querySelector('input');
+const defaultImg = "https://media.giphy.com/media/YFxJ7u3FdCrdK/giphy.gif";
 
 document.querySelector('form').addEventListener('submit', (e) => {
   e.preventDefault();
@@ -24,17 +25,26 @@ document.querySelector('form').addEventListener('submit', (e) => {
         });
     }
     searchBar.value="";
-})
-
-function showBooksResults(books) {
-  console.log('books[0].volumeInfo:', books[5].volumeInfo)
+  })
+  
+  function showBooksResults(books) {
+  bookListContainer.innerHTML ="";
+  bookListHeadline.innerHTML = ""
+  bookListHeadline.innerHTML += `
+    Here is your books:
+  `
   books.map(book => {
     bookListContainer.innerHTML += `
-    <card >
-    <h3>${book.volumeInfo.title}</h3>
-     <img src=${(book.volumeInfo.imageLinks) ? src=book.volumeInfo.imageLinks.thumbnail :defaultImg }
-     alt=${book.volumeInfo.title}/> 
-    <p >${book.volumeInfo.description ? book.volumeInfo.description.slice(0,50)+'...' : book.volumeInfo.subtitle }</p>
+    <card key =${book.id}>
+      <h3>${book.volumeInfo.title}</h3>
+      <img src=${(book.volumeInfo.imageLinks) 
+        ? src=book.volumeInfo.imageLinks.thumbnail 
+        : defaultImg }
+        alt=${book.volumeInfo.title}/> 
+      <p>${book.volumeInfo.description 
+        ? book.volumeInfo.description.slice(0,50)+'...' 
+        : book.volumeInfo.subtitle }
+      </p>
     </card>
     `
   })
